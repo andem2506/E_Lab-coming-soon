@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>Elsewhere Lab - Coming Soon</title>
+  <meta name="description" content="Elsewhere Lab - Innovative design meets practical technology. Sustainable solutions for tomorrow." />
+  <meta name="author" content="Elsewhere Lab" />
+  
+  <meta property="og:title" content="Elsewhere Lab - Coming Soon" />
+  <meta property="og:description" content="Innovative design meets practical technology. Sustainable solutions for tomorrow." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+  
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@Lovable" />
+  <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+  
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --background: hsl(0, 0%, 23%);
+      --foreground: hsl(0, 0%, 95%);
+      --card: hsl(0, 0%, 28%);
+      --card-foreground: hsl(0, 0%, 95%);
+      --primary: hsl(84, 100%, 59%);
+      --primary-foreground: hsl(0, 0%, 15%);
+      --secondary: hsl(0, 0%, 35%);
+      --secondary-foreground: hsl(0, 0%, 95%);
+      --muted: hsl(0, 0%, 35%);
+      --muted-foreground: hsl(0, 0%, 65%);
+      --border: hsl(0, 0%, 35%);
+      --input: hsl(0, 0%, 30%);
+      --line-accent: hsl(84, 100%, 59%);
+      --line-muted: hsl(0, 0%, 45%);
+    }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background-color: var(--background);
+      color: var(--foreground);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Layout */
+    .container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .content {
+      max-width: 56rem;
+      margin: 0 auto;
+      text-align: center;
+      animation: fade-in 0.8s ease-out;
+    }
+
+    /* Logo */
+    .logo-container {
+      margin-bottom: 3rem;
+      animation: slide-up 0.8s ease-out;
+    }
+
+    .logo {
+      width: 100%;
+      max-width: 42rem;
+      margin: 0 auto;
+      display: block;
+    }
+
+    /* Coming Soon Badge */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      border: 1px solid hsla(84, 100%, 59%, 0.3);
+      background-color: hsla(84, 100%, 59%, 0.05);
+      margin-bottom: 2rem;
+      animation: slide-up 0.8s ease-out 0.2s backwards;
+    }
+
+    .pulse-dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 9999px;
+      background-color: var(--primary);
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    .badge-text {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--primary);
+    }
+
+    /* Tagline */
+    .tagline {
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--muted-foreground);
+      max-width: 42rem;
+      margin: 0 auto 2rem;
+      animation: slide-up 0.8s ease-out 0.3s backwards;
+    }
+
+    .tagline-emphasis {
+      color: var(--foreground);
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 1.25rem;
+    }
+
+    /* Description */
+    .description {
+      font-size: 1rem;
+      color: var(--muted-foreground);
+      max-width: 36rem;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+      animation: slide-up 0.8s ease-out 0.4s backwards;
+    }
+
+    /* Email Signup */
+    .signup-container {
+      padding-top: 2rem;
+      animation: slide-up 0.8s ease-out 0.5s backwards;
+    }
+
+    .signup-label {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .signup-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      width: 100%;
+      max-width: 28rem;
+      margin: 0 auto;
+    }
+
+    .input {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      color: var(--foreground);
+      padding: 0.625rem 1rem;
+      border-radius: 0.5rem;
+      font-size: 0.875rem;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+
+    .input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px hsla(84, 100%, 59%, 0.2);
+    }
+
+    .input::placeholder {
+      color: var(--muted-foreground);
+    }
+
+    .button {
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+      padding: 0.625rem 1.5rem;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .button:hover {
+      background-color: hsla(84, 100%, 59%, 0.9);
+    }
+
+    /* Decorative Lines */
+    .decorative-lines {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      opacity: 0.2;
+    }
+
+    .decorative-lines.left {
+      left: 0;
+    }
+
+    .decorative-lines.right {
+      right: 0;
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+    .line {
+      height: 0.125rem;
+      background-color: var(--line-muted);
+    }
+
+    .line.accent {
+      background-color: var(--primary);
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    /* Footer */
+    footer {
+      padding: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-content {
+      max-width: 56rem;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      color: var(--muted-foreground);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background-color: var(--card);
+      color: var(--foreground);
+      padding: 1rem 1.5rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+      animation: slide-in-right 0.3s ease-out;
+      z-index: 1000;
+      display: none;
+    }
+
+    .toast.show {
+      display: block;
+    }
+
+    .toast.success {
+      border-left: 4px solid var(--primary);
+    }
+
+    .signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 28rem;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Keep them centered even in row layout */
+@media (min-width: 640px) {
+  .signup-form {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+    /* Animations */
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slide-up {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes glow {
+      0%, 100% {
+        filter: drop-shadow(0 0 8px hsla(84, 100%, 59%, 0.5));
+      }
+      50% {
+        filter: drop-shadow(0 0 16px hsla(84, 100%, 59%, 0.8));
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+    }
+
+    @keyframes slide-in-right {
+      from {
+        transform: translateX(100%);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    /* Responsive */
+    @media (min-width: 640px) {
+      .signup-form {
+        flex-direction: row;
+      }
+
+      .footer-content {
+        flex-direction: row;
+      }
+
+      .tagline {
+        font-size: 1.875rem;
+      }
+
+      .tagline-emphasis {
+        font-size: 1.5rem;
+      }
+
+      .description {
+        font-size: 1.125rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Main Content -->
+    <main>
+      <!-- Left Decorative Lines -->
+      <div class="decorative-lines left">
+        <div class="line accent" style="width: 3rem; animation-delay: 0s;"></div>
+        <div class="line" style="width: 4rem;"></div>
+        <div class="line accent" style="width: 5rem; animation-delay: 0.5s;"></div>
+        <div class="line" style="width: 3rem;"></div>
+        <div class="line accent" style="width: 6rem; animation-delay: 1s;"></div>
+        <div class="line" style="width: 4rem;"></div>
+        <div class="line accent" style="width: 3rem; animation-delay: 1.5s;"></div>
+      </div>
+
+      <div class="content">
+        <!-- Logo -->
+        <div class="logo-container">
+          <img src="logo-3d-4.jpg" alt="Elsewhere Lab" class="logo" />
+        </div>
+
+        <!-- Coming Soon Badge -->
+        <div class="badge">
+          <div class="pulse-dot"></div>
+          <span class="badge-text">Coming Soon</span>
+        </div>
+
+        <!-- Tagline -->
+        <h2 class="tagline">
+          Simple materials. Cutting-edge ideas.
+          <span class="tagline-emphasis">Sustainable solutions for Today.</span>
+        </h2>
+
+        <!-- Description -->
+        <p class="description">
+          We transform everyday materials into extraordinary products through innovative design, 
+          advanced techniques, and eco-friendly technologies.
+        </p>
+
+        <!-- Email Signup -->
+        <div class="signup-container justify-center">
+          <p class="signup-label">Be the first to know when we launch</p>
+          <form class="signup-form" id="emailForm">
+            <input 
+              type="email" 
+              placeholder="Enter your email" 
+              required 
+              class="input"
+              id="emailInput"
+            />
+            <button type="submit" class="button">Notify Me</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Right Decorative Lines -->
+      <div class="decorative-lines right">
+        <div class="line accent" style="width: 3rem; animation-delay: 0.3s;"></div>
+        <div class="line" style="width: 4rem;"></div>
+        <div class="line accent" style="width: 5rem; animation-delay: 0.8s;"></div>
+        <div class="line" style="width: 3rem;"></div>
+        <div class="line accent" style="width: 6rem; animation-delay: 1.3s;"></div>
+        <div class="line" style="width: 4rem;"></div>
+        <div class="line accent" style="width: 3rem; animation-delay: 1.8s;"></div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <p>© 2024 Elsewhere Lab. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast"></div>
+
+  <script>
+    // Email form handling
+  const emailForm = document.getElementById('emailForm');
+  const emailInput = document.getElementById('emailInput');
+  const toast = document.getElementById('toast');
+
+  emailForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const email = emailInput.value.trim();
+    if (!email) return;
+
+    // Replace with your Google Apps Script Web App URL
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxZaD0SHztBsgPd3coK6nzBSmUYzGEi8Jh1SiAMpUJnUDuF0IpwF_4lVGnESBGuTtfj/exec';
+
+    try {
+      await fetch(scriptURL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+      
+      showToast("Thanks! We'll notify you when we launch.", 'success');
+      emailInput.value = '';
+    } catch (error) {
+      showToast("Something went wrong. Try again later.", 'error');
+      console.error(error);
+    }
+  });
+
+  function showToast(message, type = 'success') {
+    toast.textContent = message;
+    toast.className = `toast ${type} show`;
+    setTimeout(() => toast.classList.remove('show'), 3000);
+  }
+</script>
+
+</body>
+</html>
